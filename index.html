@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <title>StacMan</title>
+    <link rel="shortcut icon" type="image/x-icon" href="bitcoin.png">
+    <script type="text/javascript" src="node_modules/easeljs/lib/easeljs.min.js"></script>
+    <script type="text/javascript" src="node_modules/preloadjs/lib/preloadjs.min.js"></script>
+    <script type="text/javascript" src="node_modules/soundjs/lib/soundjs.min.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/Utils.js"></script>
+    <script type="text/javascript" src="js/Entity.js"></script>
+    <script type="text/javascript" src="js/Player.js"></script>
+    <script type="text/javascript" src="js/Bot.js"></script>
+    <script type="text/javascript" src="js/Bonus.js"></script>
+    <script type="text/javascript" src="js/Tile.js"></script>
+    <script type="text/javascript" src="js/Bitcoin.js"></script>
+    <script type="text/javascript" src="js/Menu.js"></script>
+    <script type="text/javascript" src="js/InputEngine.js"></script>
+    <script type="text/javascript" src="js/GameEngine.js"></script> 
+    <script type="text/javascript" src="js/Config.js"></script> 
+    <script  type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript" src="js/Paywall.js"></script>
+    <script type="text/javascript" src="js/Onesat.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body onload="gGameEngine.load()">
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                </i> Stac<strong>man</strong>
+                <button class="onesat" onclick="togglePrice()">1sat=1sat</button>
+            </h1>
+        </div>
+        <div id="game">
+            <canvas id="canvas" width="609" height="609"></canvas>
+            <div id="player-glow" class="glowing"></div>
+
+        </div>
+        <!-- <div id="paywall">
+            <h3 id="paywallTitle">Pay 100 sats to play!</h3>
+            <div id="qrcode">
+            </div>
+        </div> -->
+
+        <div id="withdraw">
+            <h3 id="paywallTitle">Withdraw sats</h3>
+            <div id="withdrawQRcode">
+            </div>
+        </div>
+        
+        <h3>Sats Earned<span class="blah"> You must have at least 10 sats to withdraw.</span></h3>
+        <h4 id="satsLabel">0 sats</h4><button id="withdrawButton" type="button">Withdraw</button>
+        <h3>How to play</h3>
+        <div class="row">
+            <div>
+                <h4>Player 1</h4>
+                <ul>
+                    <li><strong>arrow keys</strong> &hellip; move</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Player 2</h4>
+                <ul>
+                    <li><strong>W, A, S, D</strong> &hellip; move</li>
+                </ul>
+        </div>
+        </div>
+        <h4>six shooter = INVINCIBLE (for a little bit)</h4>
+        <h4>road runner = speed power!</h4>
+        <h4>bitcoin icon = one sat</h4>
+        <hr>
+        <script type="text/javascript" src="js/Withdraw.js"></script>
+
+        <div class="footer">
+            </br>
+            <div class="links">
+                <a href="https://national-debt-snake.vercel.app/" target="blank">snake</a> \
+                <a href="https://nostrminusnostr.vercel.app/" target="blank">nostr</a> \
+                <a href="https://nostrminusnostr.vercel.app/sports" target="blank">sports</a> \
+                <a href="https://bitcoin-chess.vercel.app/" target="blank">chess</a>
+                </br>
+                </br>
+                <a href="https://arcadewallet.vercel.app/" target="blank">arcade</a> \
+                <a href="https://tnglnbits.vercel.app/" target="blank">star trek</a> \
+                <a href="https://bitcoin-battleship.vercel.app/" target="blank">battleship</a> \
+                <a href="https://bitcoin-facts.onrender.com/" target="blank">bitcoin</a>
+            </div>
+            <div class="center">
+                <div class="ohio">made in Ohio <img src="img/ohio.png" fill="currentColor" style="width: 20px; height: 20px; background: #969696;"> by <a href="https://stacker.news/jasonb" target="blank">@jasonb</a></div>
+                <p class="pull-left credits">
+                    Credits: <a href=""></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
