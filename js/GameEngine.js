@@ -72,7 +72,7 @@ GameEngine = Class.extend({
 
         createjs.Sound.addEventListener("fileload", this.onSoundLoaded);
         createjs.Sound.registerSound("sound/rr.m4a", "rr");
-        createjs.Sound.registerSound("sound/Thursday.ogg", "game");
+        createjs.Sound.registerSound(url="https://audio.nostr.build/6e1ff3c5cf9d2c4c6b3ae3c4fb21c14c3b2f79fd64958504e9f5f0493e27e88b.mp3", "game");
         createjs.Sound.registerSound("sound/invincible.mp3", "sixs");
 
         this.menu = new Menu();
