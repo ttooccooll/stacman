@@ -1,5 +1,5 @@
 Config = Class.extend({
-    API_KEY: process.env.API_KEYZ,
+    API_KEY: "",
     FEE: 1,
     BITCOIN_VALUE: 1,
 });
