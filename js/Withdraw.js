@@ -44,7 +44,7 @@ function createWithdrawLNURL(){
     const payload = JSON.stringify({
         "expiresIn": 300,
         "amount": gGameEngine.totalSats * 1000,
-        "description": "stackerman withdraw",
+        "description": "stacman withdraw",
         "internalId": "11af01d092444a317cb33faa6b8304b8",
         "callbackUrl": "https://your-website.com/callback"
     });
