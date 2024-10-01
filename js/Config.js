@@ -1,7 +1,7 @@
 Config = Class.extend({
-    API_KEY: process.env.API_KEY,
-    FEE: process.env.FEE,
-    BITCOIN_VALUE: process.env.BITCOIN_VALUE,
+    API_KEY: '${API_KEY}',
+    FEE: '${FEE}',
+    BITCOIN_VALUE: '${BITCOIN_VALUE}',
   });
   
   config = new Config();
