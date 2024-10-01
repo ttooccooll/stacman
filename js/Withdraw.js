@@ -35,11 +35,11 @@ function updateWithdrawUI(){
 function createWithdrawLNURL(){
     const Http = new XMLHttpRequest();
     const url = 'https://api.zebedee.io/v0/withdrawal-requests';
-
+    const apiKey = process.env.API_KEY
     Http.open("POST", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", API_KEY);
+    Http.setRequestHeader("apikey", apiKey);
 
     const payload = JSON.stringify({
         "expiresIn": 300,
@@ -68,11 +68,11 @@ function createWithdrawLNURL(){
 function checkWithdraw() {
     const Http = new XMLHttpRequest();
     const url = 'https://api.zebedee.io/v0/withdrawal-requests/' + currentChargeID;
-
+    const apiKey = process.env.API_KEY
     Http.open("GET", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", API_KEY);
+    Http.setRequestHeader("apikey", apiKey);
 
     Http.send();
 
