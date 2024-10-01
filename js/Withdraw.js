@@ -39,7 +39,7 @@ function createWithdrawLNURL(){
     Http.open("POST", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", process.env.API_KEY);
+    Http.setRequestHeader("apikey", API_KEY);
 
     const payload = JSON.stringify({
         "expiresIn": 300,
@@ -72,7 +72,7 @@ function checkWithdraw() {
     Http.open("GET", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", process.env.API_KEY);
+    Http.setRequestHeader("apikey", API_KEY);
 
     Http.send();
 
