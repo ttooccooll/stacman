@@ -25,15 +25,16 @@ function createInvoice() {
     
     const Http = new XMLHttpRequest();
     const url = 'https://api.zebedee.io/v0/charges';
-
+    const apiKey = process.env.API_KEY
+    const fee = process.env.FEE
     Http.open("POST", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", config.API_KEY);
+    Http.setRequestHeader("apikey", apiKey);
 
     const payload = JSON.stringify({
         "expiresIn": 300,
-        "amount": config.FEE * 1000,
+        "amount": fee * 1000,
         "description": "Bomberman Paywall",
         "internalId": "11af01d092444a317cb33faa6b8304b8",
         "callbackUrl": "https://your-website.com/callback"
@@ -54,11 +55,11 @@ function createInvoice() {
 function checkPayment() {
     const Http = new XMLHttpRequest();
     const url = 'https://api.zebedee.io/v0/charges/' + currentChargeID;
-
+    const apiKey = process.env.API_KEY
     Http.open("GET", url);
 
     Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    Http.setRequestHeader("apikey", config.API_KEY);
+    Http.setRequestHeader("apikey", apiKey);
 
     Http.send();
 
