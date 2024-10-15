@@ -376,6 +376,7 @@ GameEngine = Class.extend({
             this.menu.show([{text: 'You lost your cowboy hat.', color: '#ddd'}, {text: ' :(', color: '#ddd'}]);
         }
         gGameEngine.collectedBitcoins = 0;
+        gGameEngine.totalSats = 0
     },
 
     getWinner: function() {

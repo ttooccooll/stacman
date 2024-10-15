@@ -20,6 +20,7 @@ Player = Entity.extend({
     deadTimer: 0,
 
     init: function(position, controls, id) {
+        this.sixsSoundPlaying = false;
 
         if (id) {
             this.id = id;
@@ -320,25 +321,29 @@ Player = Entity.extend({
             }
             this.velocity += 0.8;
         } else if (bonus.type == 'sixs') {
-            if (gGameEngine.gameSoundInstance) {
-                gGameEngine.gameSoundInstance.muted = true;
-                setTimeout(function() {
-                    gGameEngine.gameSoundInstance.muted = false;
-                }, 19000);
+            if (!this.sixsSoundPlaying) {
+                this.sixsSoundPlaying = true;
+                if (gGameEngine.gameSoundInstance) {
+                    gGameEngine.gameSoundInstance.muted = true;
+                    setTimeout(function() {
+                        gGameEngine.gameSoundInstance.muted = false;
+                    }, 19000);
+                }
+                if (!createjs.Sound.play("sixs")) {
+                    var sixsSound = createjs.Sound.play("sixs");
+                    sixsSound.setVolume(0.5);
+                    sixsSound.on("complete", function() {
+                        this.sixsSoundPlaying = false;
+                    }, this);
+                }
+                this.invincible = true;
+                this.invincibleTimer = 1080;
+                this.bmp.alpha = 0.2;
             }
-            if (!createjs.Sound.play("sixs")) {
-                var sixsSound = createjs.Sound.play("sixs");
-                sixsSound.setVolume(0.5);
-            }
-            this.invincible = true;
-            this.invincibleTimer = 1080;
-            this.bmp.alpha = 0.2;
         } else if (bonus.type == 'bitcoin') {console.log(this.playerNum);
-           if(this.playerNum == 1){
             gGameEngine.totalSats += config.BITCOIN_VALUE;
             document.getElementById('satsLabel').innerHTML = gGameEngine.totalSats+" sats";
             gGameEngine.collectedBitcoins++;
-           }
         }
     },
 
