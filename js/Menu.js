@@ -75,18 +75,34 @@ Menu = Class.extend({
         var titleWidth = title1.getMeasuredWidth() + title2.getMeasuredWidth();
 
         title1.x = gGameEngine.size.w / 2 - titleWidth / 2;
-        title1.y = gGameEngine.size.h / 2 - title1.getMeasuredHeight() / 2 - 80;
+        title1.y = gGameEngine.size.h / 2 - title1.getMeasuredHeight() / 2 - 200;
         gGameEngine.stage.addChild(title1);
         this.views.push(title1);
 
         title2.x = title1.x + title1.getMeasuredWidth();
-        title2.y = gGameEngine.size.h / 2 - title1.getMeasuredHeight() / 2 - 80;
+        title2.y = gGameEngine.size.h / 2 - title1.getMeasuredHeight() / 2 - 200;
         gGameEngine.stage.addChild(title2);
         this.views.push(title2);
 
+        var paragraphText = "It is a dark day in Texas. The fed has decended upon the town of Austin, intent to confiscate everyone's cowboy hats. You alone have the power to accumulate enough sats to properly discourage them.\n\nGrab your six shooter for invincibility. You can find it clearly on the ground (unlike the new ones on sn that I'm still convinced may have no friggin' rhyme or reason to them). Grab the roadrunner for speed. Whatever you do, don't get caught up in fed-tomfoolery.\n\nThis game in total probably lasts as long as it's taken you to read this, you overzealously literate dork. I really only put this here to give the music time to pick up before you start playing. Anyway, get in there and stack like you're life depends on it! This may be your last chance to save all of Texas before I put up a paywall and you have to pay 100 real sats just to play this stupid game. It's basically pacman.";
+        var paragraph = new createjs.Text(paragraphText, "12px monospace", "#black");
+        paragraph.lineHeight = 13;
+        paragraph.lineWidth = 400;
+        paragraph.x = gGameEngine.size.w / 2 - 200;
+        paragraph.y = title1.y + title1.getMeasuredHeight() + 20;
+        
+        var bounds = paragraph.getBounds();
+        var paragraphBgGraphics = new createjs.Graphics().beginFill("rgba(90, 90, 90, 0.5)").drawRect(paragraph.x - 10, paragraph.y - 10, bounds.width + 20, bounds.height + 20);
+        var paragraphBg = new createjs.Shape(paragraphBgGraphics);
+        gGameEngine.stage.addChild(paragraphBg);
+        this.views.push(paragraphBg);
+        
+        gGameEngine.stage.addChild(paragraph);
+        this.views.push(paragraph);
+
         var modeSize = 110;
         var modesDistance = 20;
-        var modesY = title1.y + title1.getMeasuredHeight() + 40;
+        var modesY = title1.y + title1.getMeasuredHeight() + 300;
 
         // singleplayer button
         var singleX = gGameEngine.size.w / 2 - modeSize - modesDistance;
